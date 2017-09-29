@@ -63,7 +63,7 @@ $toys = $stmt->fetchAll();
 
                         <p class="card-text"><?php echo  '<b>Description:    </b>' . htmlspecialchars  ($toy['description']);
                         echo '<br>';?></p>
-                        <a href="edit.php?id=<?php htmlspecialchars($toy['id']) ;?>" class="btn btn-outline-danger buton">Edit Details</a>
+                        <a href="edit.php?id=<?php echo htmlspecialchars($toy['id']) ;?>" class="btn btn-outline-danger buton">Edit Details</a>
                     </div>
                 </div>
              <?php endforeach;?>

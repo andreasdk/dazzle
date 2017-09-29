@@ -6,7 +6,7 @@ require 'color.php';
 $db=db_connect();
 
 $stmt=$db-> prepare('SELECT * FROM toys WHERE id = ?');
-//$stmt->execute([$_GET['id']]);
+$stmt->execute([$_GET['id']]);
 $toys = $stmt->fetch();
 ?>
 <!DOCTYPE html>
