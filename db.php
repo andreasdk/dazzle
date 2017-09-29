@@ -1,7 +1,8 @@
 <?php
 function db_connect()
 {
-    $db = new PDO('mysql:host=localhost;dbname=toys;charset=utf8', 'root', 'rootroot');
+    require 'db_config.php';
+    $db = new PDO('mysql:host=localhost;dbname=toys;charset=utf8', $host ,$password );
     $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $db;
 }
