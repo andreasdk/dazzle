@@ -4,9 +4,9 @@ require_once 'db.php';
 require_once 'functions.php';
 $db=db_connect();
 
-$stmt=$db-> prepare('SELECT * FROM movies WHERE id = ?');
+$stmt=$db-> prepare('SELECT * FROM toys WHERE id = ?');
 $stmt->execute([$_GET['id']]);
-$movie = $stmt->fetch();
+$toys = $stmt->fetch();
 
-echo build_form($movie['name'],$movie['year'], $movie['director'], $movie['genre'],$movie['description']);
+echo build_form($toys['name'],$toys['price'], $toys['brand'], $toys['color'],$toys['description']);
 //var_dump($movie);

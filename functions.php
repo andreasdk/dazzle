@@ -1,22 +1,20 @@
 <?php
-function build_form($name, $price, $category, $brand, $description)
+function build_form($name, $price, $brand, $color, $description)
 {
     $form = '<form action="" method="post">
     Name: <br>
-        <input type="text" name="name" value=" '. htmlspecialchars($name) .'"> <br>
+        <input type="text" name="name" value="'. htmlspecialchars($name) .'"> <br>
     Price: <br> 
-    <input type="text" name="price" value=" '. htmlspecialchars($price) .'"> <br>
-    Category: <br> 
-    <input type="text" name="category" value="'. htmlspecialchars($category).'"> <br>
-    Brand: <br> <select name="brand">';
+    <input type="text" name="price" value="'. htmlspecialchars($price) .'"> <br>
+    Brand: <br> <select name="brand"> <option value="">Select brand</option>';
     require 'brand.php';
     foreach ($brands as $id =>$brand)
         {
         $form .="<option value=$id>$brand</option>";
         }
         $form .=
-        '</select> 
-    Color: <br> <select name="color">';
+        '</select> <br>
+    Color: <br> <select name="color"> <option value="">Select color</option>';
     require 'color.php';
     foreach ($colors as $id =>$color)
         {
