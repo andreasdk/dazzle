@@ -1,7 +1,8 @@
 <?php
-require 'genre.php';
 require_once 'db.php';
 require_once 'functions.php';
+require 'brand.php';
+require 'color.php';
 $db=db_connect();
 
 $stmt=$db-> prepare('SELECT * FROM toys WHERE id = ?');
