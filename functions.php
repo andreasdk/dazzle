@@ -1,7 +1,7 @@
 <?php
 function build_form($name, $price, $brand, $color, $description)
 {
-    $form = '<form action="" method="post">
+    $form = '<form action="" method="post" ">
     Name: <br>
         <input type="text" name="name" value="'. htmlspecialchars($name) .'"> <br>
     Price: <br> 
@@ -22,10 +22,10 @@ function build_form($name, $price, $brand, $color, $description)
         }
         $form .=
         '</select> 
-        <br><br>
-        Description: <br> <textarea name="description" id="" cols="30" rows="10">'. htmlspecialchars($description).'</textarea>
         <br>
-        <input type="submit" value="Find..">
+        Description: <br> <textarea name="description" id="" cols="40" rows="6">'. htmlspecialchars($description).'</textarea>
+        <br>
+        <input type="submit" value="SUBMIT">
     </form>';
     return $form;
     
