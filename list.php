@@ -1,32 +1,4 @@
-<?php
-require_once 'db.php';
-require 'genre.php';
-$db=db_connect();
 
-$stmt = $db-> prepare('SELECT * FROM movies');
-$stmt -> execute();
-$movies = $stmt->fetchAll();
-//var_dump($movies);
-
-foreach($movies as $movie){
-    echo  '<b>Movie:  </b>' . htmlspecialchars  ($movie['name']);
-    echo '<br>';
-    echo  '<b>Year:    </b>' . htmlspecialchars  ($movie['year']);
-    echo '<br>';
-    echo  '<b>Director:    </b>' . htmlspecialchars  ($movie['director']);
-    echo '<br>';
-    echo  '<b>Plot:    </b>' . htmlspecialchars  ($movie['description']);
-    echo '<br>';
-    echo  '<b>Genre:    </b>' . htmlspecialchars  ($genres[$movie['genre']]);
-    echo '<br>';
-    echo '<a href="edit.php?id=' . htmlspecialchars($movie['id']) . '">edit</a>';
-    echo '<br>';
-    echo '<br>';
-
-
-
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,26 +9,39 @@ foreach($movies as $movie){
 </head>
 <body>
     <ol>
-    
-    
-    <?php foreach($movies as $movie){
-    echo '<li> ';
-    echo  '<b>Movie:  </b>' . htmlspecialchars  ($movie['name']);
+<?php
+require_once 'db.php';
+require 'color.php';
+require 'brand.php';
+
+$db=db_connect();
+
+$stmt = $db-> prepare('SELECT * FROM toys');
+$stmt -> execute();
+$toys = $stmt->fetchAll();
+
+
+foreach($toys as $toy){
+    echo  '<b>name:  </b>' . htmlspecialchars  ($toy['name']);
     echo '<br>';
-    echo  '<b>Year:    </b>' . htmlspecialchars  ($movie['year']);
+    echo  '<b>price:    </b>' . htmlspecialchars  ($toy['price']);
     echo '<br>';
-    echo  '<b>Director:    </b>' . htmlspecialchars  ($movie['director']);
+    echo  '<b>brand:    </b>' . htmlspecialchars  ($toy['brand']);
     echo '<br>';
-    echo  '<b>Plot:    </b>' . htmlspecialchars  ($movie['description']);
+    echo  '<b>color:    </b>' . htmlspecialchars  ($colors[$toy['color']]);
     echo '<br>';
-    echo  '<b>Genre:    </b>' . htmlspecialchars  ($genres[$movie['genre']]);
+    echo  '<b>brand:    </b>' . htmlspecialchars  ($brands[$toy['brand']]);
     echo '<br>';
-    echo '<a href="edit.php?id=' . htmlspecialchars($movie['id']) . '">edit</a>';
+    echo '<a href="edit.php?id=' . htmlspecialchars($toy['id']) . '">edit</a>';
     echo '<br>';
     echo '<br>';
-    echo '</li>';
+
+
+
 }
-    ?>
+?>    
+    
+   
    
 
     </ol>
